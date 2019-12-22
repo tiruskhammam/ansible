@@ -1,0 +1,13 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+   - name: update ubuntu packages and install apache2
+     apt:
+      name: apache2
+      update_cache: yes
+      state: present
+   - name: restart apache2
+     service: 
+       name: apache2
+       state: restarted  
